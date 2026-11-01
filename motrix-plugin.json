@@ -1,9 +1,9 @@
 {
   "$schema": "https://motrix.app/schemas/plugin/v1.json",
   "manifestVersion": 1,
-  "id": "me.folder-categories",
+  "id": "ashkan4472.folder-categories",
   "name": "%name%",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "%description%",
   "categories": [
     "post-action"
