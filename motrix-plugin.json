@@ -1,0 +1,109 @@
+{
+  "$schema": "https://motrix.app/schemas/plugin/v1.json",
+  "manifestVersion": 1,
+  "id": "me.folder-categories",
+  "name": "%name%",
+  "version": "0.3.2",
+  "description": "%description%",
+  "categories": [
+    "post-action"
+  ],
+  "engines": {
+    "motrix": ">=2.0.0 <3.0.0"
+  },
+  "main": "dist/plugin.js",
+  "permissions": [],
+  "hostPermissions": [
+    "<all_urls>"
+  ],
+  "activationEvents": [
+    "onStartup",
+    "onTaskType:http",
+    "onTaskType:ftp"
+  ],
+  "contributes": {
+    "hooks": {
+      "beforeFinalize": {
+        "role": "post-process"
+      },
+      "onError": {
+        "role": "post-process"
+      }
+    },
+    "configuration": {
+      "title": "Folder categories",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "compressed": {
+            "type": "string",
+            "title": "Compressed extensions",
+            "description": "Comma-separated; files with these extensions go to the \"Compressed\" folder",
+            "default": "zip,rar,7z,gz,gzip,tar,tgz,bz2,xz,z,cab,arj,lzh,lha,ace,sit,sitx,jar"
+          },
+          "compressedPath": {
+            "type": "string",
+            "title": "Compressed folder",
+            "description": "Where these files go. Empty = \"Compressed\" inside the download folder. A relative name is created inside the download folder; an absolute path (e.g. /Users/me/Videos or D:\\\\Videos) is used as-is.",
+            "default": ""
+          },
+          "documents": {
+            "type": "string",
+            "title": "Documents extensions",
+            "description": "Comma-separated; files with these extensions go to the \"Documents\" folder",
+            "default": "pdf,doc,docx,xls,xlsx,ppt,pptx,txt,rtf,odt,ods,odp,csv,epub,chm"
+          },
+          "documentsPath": {
+            "type": "string",
+            "title": "Documents folder",
+            "description": "Where these files go. Empty = \"Documents\" inside the download folder. A relative name is created inside the download folder; an absolute path (e.g. /Users/me/Videos or D:\\\\Videos) is used as-is.",
+            "default": ""
+          },
+          "music": {
+            "type": "string",
+            "title": "Music extensions",
+            "description": "Comma-separated; files with these extensions go to the \"Music\" folder",
+            "default": "mp3,wav,wma,ogg,flac,aac,m4a,mid,midi,aif,aiff,ra,ape,opus"
+          },
+          "musicPath": {
+            "type": "string",
+            "title": "Music folder",
+            "description": "Where these files go. Empty = \"Music\" inside the download folder. A relative name is created inside the download folder; an absolute path (e.g. /Users/me/Videos or D:\\\\Videos) is used as-is.",
+            "default": ""
+          },
+          "programs": {
+            "type": "string",
+            "title": "Programs extensions",
+            "description": "Comma-separated; files with these extensions go to the \"Programs\" folder",
+            "default": "exe,msi,dmg,pkg,deb,rpm,apk,appimage,bin,iso,bat"
+          },
+          "programsPath": {
+            "type": "string",
+            "title": "Programs folder",
+            "description": "Where these files go. Empty = \"Programs\" inside the download folder. A relative name is created inside the download folder; an absolute path (e.g. /Users/me/Videos or D:\\\\Videos) is used as-is.",
+            "default": ""
+          },
+          "video": {
+            "type": "string",
+            "title": "Video extensions",
+            "description": "Comma-separated; files with these extensions go to the \"Video\" folder",
+            "default": "mp4,mkv,avi,mov,wmv,flv,webm,mpg,mpeg,m4v,3gp,ts,vob,asf,rm,ogv"
+          },
+          "videoPath": {
+            "type": "string",
+            "title": "Video folder",
+            "description": "Where these files go. Empty = \"Video\" inside the download folder. A relative name is created inside the download folder; an absolute path (e.g. /Users/me/Videos or D:\\\\Videos) is used as-is.",
+            "default": ""
+          },
+          "custom": {
+            "type": "string",
+            "title": "Custom categories",
+            "description": "Extra folders as Folder=ext,ext separated by \";\" (Folder may be a relative name or an absolute path), e.g. Images=jpg,png;/Users/me/Books=epub,mobi. Overrides the lists above.",
+            "default": ""
+          }
+        }
+      }
+    }
+  },
+  "l10n": "locales"
+}
